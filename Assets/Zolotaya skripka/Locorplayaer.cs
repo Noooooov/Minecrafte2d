@@ -29,7 +29,7 @@ public class Locorplayaer : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
+            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero, LayerMaskScan);
             if (hit && Podobran == null)
             {
                 if (hit.collider.transform.TryGetComponent(out FollowMe fm))
