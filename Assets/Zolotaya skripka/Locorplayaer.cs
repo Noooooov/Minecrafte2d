@@ -19,7 +19,7 @@ public class Locorplayaer : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero, LayerMaskScan);
+            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero, Mathf.Infinity, LayerMaskScan);
             if (hit)
             {
                 Destroy(hit.collider.gameObject);
@@ -29,7 +29,7 @@ public class Locorplayaer : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero, LayerMaskScan);
+            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero, Mathf.Infinity, LayerMaskScan);
             if (hit && Podobran == null)
             {
                 if (hit.collider.transform.TryGetComponent(out FollowMe fm))
@@ -37,9 +37,6 @@ public class Locorplayaer : MonoBehaviour
                     fm.enabled = true;
                     Podobran = hit.collider.gameObject;
                 }
-
-
-
             }
         }
         if (Input.GetMouseButtonUp(1))
