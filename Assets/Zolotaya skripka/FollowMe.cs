@@ -33,29 +33,6 @@ public class FollowMe : MonoBehaviour
         Vector3 posMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 dir = (posMouse - transform.position).normalized;
        
-        Fizika.velocity = dir*35 ;
-    }
-
-    private void CheckLight()
-    {
-        if (selfCollider != null)
-        {
-            List<Collider2D> overlapColliders = new List<Collider2D>();
-            selfCollider.Overlap(overlapColliders);
-
-            foreach (Collider2D collider in overlapColliders)
-                if (collider.gameObject.GetComponent<SpriteRenderer>().sortingLayerName == "Nogloballight???")
-                {
-                    spriteRenderer.sortingLayerName = "Nogloballight???";
-                    return;
-                }
-
-            spriteRenderer.sortingLayerName = "Default???";
-
-        }
-    }
-    private void FixedUpdate()
-    {
-        CheckLight();
+        Fizika.linearVelocity = dir*35 ;
     }
 }

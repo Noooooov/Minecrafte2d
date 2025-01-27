@@ -10,4 +10,9 @@ public class MenyalkaScen : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
