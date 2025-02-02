@@ -14,14 +14,15 @@ public class EndLevel : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         collisionsCount++;
-        if (isAbleToFinish == true && other.gameObject.CompareTag("Finish"))
+        if (isAbleToFinish && other.gameObject.CompareTag("Finish"))
         {
             isAbleToFinish = false;
             Debug.Log(collisionsCount);
-            if (levelOrder == YandexGame.savesData.Progress)
+
+            if (levelOrder == YG2.saves.Progress)
             {
-                YandexGame.savesData.Progress++;
-                YandexGame.SaveCloud();
+                YG2.saves.Progress++;
+                YG2.SaveProgress();
             }
             
             onFinish.Invoke();
@@ -31,16 +32,5 @@ public class EndLevel : MonoBehaviour
     private void OnDestroy()
     {
         onFailure.Invoke();
-    }
-
-
-    void Start()
-    {
-        
-    }
-    
-    void Update()
-    {
-        
     }
 }

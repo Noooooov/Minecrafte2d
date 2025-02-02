@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using YG;
@@ -12,15 +10,10 @@ public class ZamokZamka : MonoBehaviour
     void Start()
     {
         boo = GetComponent<Button>();
-        if (YandexGame.savesData.Progress < lid)
+        if (YG2.saves.Progress < lid)
         {
             boo.interactable = false;
             zamok.SetActive(true);
         }
-    }
-
-    void Update()
-    {
-        
     }
 }
